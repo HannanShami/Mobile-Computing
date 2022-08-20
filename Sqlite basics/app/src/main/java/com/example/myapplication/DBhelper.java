@@ -5,6 +5,7 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.text.Editable;
 
 import androidx.annotation.Nullable;
 
@@ -53,6 +54,42 @@ class DBHelper extends SQLiteOpenHelper {
         //long insert =
         //if (insert == -1) { return false; }
         //else{return true;}
+    }
+
+    //updating data
+    public void updateStudent(StudentModel STUDENTModel)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+
+        ContentValues cv = new ContentValues();
+
+    }
+
+    //deleting data
+    public boolean deleteStudent(String roll)
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(STUDENT_TABLE, "StudentRollNumber=?", new String[]{roll}) > 0;
+    }
+
+    public ArrayList<StudentModel> getSingleStudent(int r)
+    {
+        ArrayList<StudentModel> student = new ArrayList<>();
+        SQLiteDatabase db = this.getReadableDatabase();
+        Cursor cursorCourses = db.rawQuery("SELECT * FROM " + STUDENT_TABLE + " WHERE " + STUDENT_ROLL + " = " + r , null);
+        if (cursorCourses.moveToFirst()) {
+            do {
+
+                student.add(new StudentModel(cursorCourses.getString(1),
+                        cursorCourses.getInt(2),
+                        cursorCourses.getInt(3) == 1 ? true : false));
+            } while (cursorCourses.moveToNext());
+
+        }
+
+        cursorCourses.close();
+
+        return student;
     }
 
     public ArrayList<StudentModel> getAllStudents() {

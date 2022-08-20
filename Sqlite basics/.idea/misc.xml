@@ -4,6 +4,11 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/Users/Shami/ASProjects/MyApplication/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Shami/ASProjects/Sqlite basics/app/src/main/res/layout/activity_delete.xml" value="0.25" />
+        <entry key="..\:/Users/Shami/ASProjects/Sqlite basics/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/Shami/ASProjects/Sqlite basics/app/src/main/res/layout/activity_search.xml" value="0.2359375" />
+        <entry key="..\:/Users/Shami/ASProjects/Sqlite basics/app/src/main/res/layout/activity_update.xml" value="0.25" />
+        <entry key="..\:/Users/Shami/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.25" />
       </map>
     </option>
   </component>
