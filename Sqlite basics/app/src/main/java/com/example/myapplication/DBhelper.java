@@ -6,6 +6,7 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.text.Editable;
+import android.util.Log;
 
 import androidx.annotation.Nullable;
 
@@ -57,12 +58,17 @@ class DBHelper extends SQLiteOpenHelper {
     }
 
     //updating data
-    public void updateStudent(StudentModel STUDENTModel)
+    public void updateStudent(StudentModel STUDENTModel, String r)
     {
+        Log.e("check",r);
         SQLiteDatabase db = this.getWritableDatabase();
 
         ContentValues cv = new ContentValues();
-
+        cv.put(STUDENT_NAME, STUDENTModel.getName());
+        cv.put(STUDENT_ROLL, STUDENTModel.getRollNmber());
+        cv.put(STUDENT_ENROLL, STUDENTModel.isEnroll());
+        db.update(STUDENT_TABLE,cv,"name=?",new String[]{r});
+        db.close();
     }
 
     //deleting data

@@ -37,7 +37,7 @@ public class SearchActivity extends AppCompatActivity {
 
                 DBHelper dbHelper = new DBHelper(SearchActivity.this);
                 dbHelper.deleteStudent(RollNumber.getText().toString());
-                Toast.makeText(SearchActivity.this, "Deleted the course", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SearchActivity.this, "Successfully Deleted", Toast.LENGTH_SHORT).show();
                 Intent i = new Intent(SearchActivity.this, MainActivity.class);
                 startActivity(i);
             }
@@ -47,7 +47,9 @@ public class SearchActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(SearchActivity.this,UpdateActivity.class);
+                intent.putExtra("RollNumber", RollNumber.getText().toString());
                 startActivity(intent);
+
             }
         });
 
